@@ -20,10 +20,10 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'clean package'
+    goals: 'package'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish JAR artifact'
   inputs:
-  targetPath: '$(System.DefaultWorkingDirectory)/target'
-  artifact:'StudentAverage-JAR'
-  publishLocation:'pipeline'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/target'
+    ArtifactName: 'StudentAverage-JAR'
+    publishLocation: 'Container'
